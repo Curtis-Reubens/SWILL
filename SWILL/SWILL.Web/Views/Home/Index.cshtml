@@ -7,6 +7,7 @@
 <html data-ng-app="swillApp">
 <head>
     <title>SWILL</title>
+    <base href="/">@*Required for HTML5 mode in Angular Routing*@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @Styles.Render("~/Content/css")
@@ -24,16 +25,19 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li><a href="~/">Home</a></li>
+                    <li><a href="~/collection">Collection</a></li>
+                    <li><a href="~/sides">Sides</a></li>
+                    <li><a href="~/chef">Chef</a></li>
                 </ul>
                 <p class="nav navbar-text navbar-right">Hello, @User.Identity.Name!</p>
             </div>
         </div>
     </div>
     <div class="container body-content">
-        @RenderPage("/Views/LunchCollection/DinerCollectionView.cshtml")
+        <div data-ng-view>
+            
+        </div>
     </div>
 </body>
 </html>

@@ -1,0 +1,18 @@
+﻿<h2>DinerCollectionView</h2>
+
+<div>
+    <div class="row" data-ng-controller="collectionController">
+        <div class="col-md-6" data-ng-repeat="dish in lunch.dishes">
+            <h4>{{dish.name}}</h4>
+            <strong>{{dish.description}}</strong>
+            <ul>
+                <li data-ng-repeat="order in dish.orders">
+                    <div ng-click="markCollected(dish.name, order.name)">
+                        {{order.name}} 
+                        <span data-ng-show="order.collected" class="glyphicon glyphicon-ok"></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
